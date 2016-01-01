@@ -1,0 +1,23 @@
+Written by Serguey Khovansky, October 2015
+Description of homework 3 program
+
+
+The main idea behind the program
+a) This code has four objects Elevator, Building, Floor and Passenger.  The Elevator moves passengers between Floors. 
+The program tracks individual Passenger objects in collections, moving Passenger objects from one collection to another as a part of the simulation and as
+elevator moves them across the floors. Passengers board the elevator going into the desired direction, e.g. if  the elevator
+is going down and stops on a floor, a passenger who wants to go up will not board. The Elevator and all of the Floors are part of a Building.
+The Elevator has limited capacity. It limits the number of passengers to carry, throwing an exception if an attempt is made to board passengers past this limit.
+
+
+b) As  Elevator moves it stops at Floors to disembark passengers, and to pick up new passengers. 
+However, if a passenger tries to board the Elevator when it is already loaded to capacity, an ElevatorFullException will be thrown. 
+The Elevator will pick up the passengers that could not be accommodated when it next visits the Floor.
+If an elevator is full it cannot load any passenger. 
+
+c) The method move() of the elevator modifies the current floor (in the direction of travel), changes the direction of travel if either ground floor
+or  last floor have been reached, it also contains functions that board and unboard passengers.
+
+
+Output evaluation
+To test the program I use the JUnit test program provided with the assignment.

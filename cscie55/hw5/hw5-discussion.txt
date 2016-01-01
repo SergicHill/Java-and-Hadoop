@@ -1,0 +1,14 @@
+Question:
+The third test runs the same test (20 client threads, 5 server threads, 10,000 transactions), 
+twice, once with command execution inside the monitor, once outside.
+Your submission should discuss the differences in performance observed between these two runs. Which way is faster? Why?
+
+
+Response:
+The case of OUTSIDE monitor is faster of the two; it shows 4.691189 txns/msec in comparison with 0.956778 txns/msec for the inside monitor.
+In both cases, the executions of the program seem to be correct as JUnit finds no issues.  The case of OUTSIDE monitor executes commands 
+outside of monitor, i.e. in a non-synchronized mode. However, even in this case the only relevant command outside of monitor 
+is the command execute() of a single object bank, which is shared across all threads. 
+Under the both modes, i.e. OUTSIDE and INSIDE, the actual execution of the command transfer is done inside the command transfer() 
+that uses synchronization on utilized accounts.  This detail might explain why the results remain correct under both modes, 
+i.e. INSIDE and OUTSIDE.
